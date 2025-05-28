@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+@layer base {
+  :root {
+    --background: 220 13% 96%; /* Light Gray #F2F2F2 */
+    --foreground: 215 25% 27%; /* Deep Blue #30475E */
+
+    --muted: 220 10% 90%; /* Lighter gray for bot messages background */
+    --muted-foreground: 215 15% 45%; /* Darker gray text for muted elements */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 27%;
+
+    --card: 0 0% 100%; /* White for chat bubbles, info cards */
+    --card-foreground: 215 25% 27%; /* Deep Blue text in cards */
+
+    --border: 220 10% 85%;
+    --input: 0 0% 100%; /* White background for input fields */
+
+    --primary: 215 25% 27%; /* Deep Blue #30475E */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 220 10% 90%; /* Lighter gray, similar to muted */
+    --secondary-foreground: 215 25% 27%;
+
+    --accent: 174 35% 70%; /* Muted Teal #80CBC4 */
+    --accent-foreground: 215 25% 27%; /* Deep Blue text on accent */
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 174 35% 70%; /* Muted Teal for focus rings */
+
+    --radius: 0.5rem;
+
+    /* Sidebar specific, can remain as is or be updated if sidebar is used */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 215 25% 15%; /* Darker blue for dark mode background */
+    --foreground: 0 0% 95%; /* Light gray for dark mode text */
+
+    --muted: 215 20% 25%;
+    --muted-foreground: 0 0% 70%;
+
+    --popover: 215 25% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --card: 215 20% 20%;
+    --card-foreground: 0 0% 95%;
+
+    --border: 215 20% 30%;
+    --input: 215 20% 25%;
+
+    --primary: 174 35% 70%; /* Muted Teal as primary in dark mode */
+    --primary-foreground: 215 25% 15%; /* Dark blue text on teal */
+
+    --secondary: 215 20% 25%;
+    --secondary-foreground: 0 0% 95%;
+
+    --accent: 215 25% 27%; /* Deep blue as accent in dark mode */
+    --accent-foreground: 0 0% 95%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --ring: 174 35% 70%;
+
+    /* Dark Sidebar specific */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1; /* Enable common ligatures */
+  }
+}
+
+/* Custom animation for message fade-in */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
